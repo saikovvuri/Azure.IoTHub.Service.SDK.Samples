@@ -17,3 +17,18 @@ IOTHUB_CONNECTIONSTRING="connectionstring"
 DEVICE="deviceid"
 
 If using Visual Studio then the environment variables are pulled out of the `Properties/launchSettings.json`
+
+## Alternative Method
+
+Using the IoT Hub Service REST API @ https://docs.microsoft.com/en-us/rest/api/iothub/service/queryiothub
+Endpoint : POST https://fully-qualified-iothubname.azure-devices.net/devices/query?api-version=2018-06-30
+
+### Query Payload
+
+-- where Edge Reported Success
+{"query":"SELECT deviceId FROM devices.modules where moduleId='$edgeAgent' AND properties.desired.$version = properties.reported.lastDesiredVersion AND properties.reported.lastDesiredStatus.code = 200"
+}
+
+-- where Edge Reported Failure
+{"query":"SELECT deviceId FROM devices.modules where moduleId='$edgeAgent' AND properties.desired.$version = properties.reported.lastDesiredVersion AND properties.reported.lastDesiredStatus.code != 200"
+}
