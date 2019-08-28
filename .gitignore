@@ -1,0 +1,34 @@
+# Compiled source #
+###################
+*.swp
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.suo
+*.user
+
+bin/
+obj/
+
+.nuget/*.nupkg
+
+.vs/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+*.nuget.props
+*.nuget.targets
+*.nuget.cache
+*.nuget.dgspec.json
+nuget.exe
+
+# Settings
+.env
+.vscode/
